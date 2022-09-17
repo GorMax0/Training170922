@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealRay : Spell
-{ 
-    public override void Use()
+{
+    public override IEnumerator Use()
     {
-        Ray ray = new Ray(transform.position,transform.forward);
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit))
+        while (IsUse == true)
         {
-            hit.rigidbody.AddForceAtPosition(ray.direction * Power, hit.point,ForceMode.Impulse);
+            if (Enemy != null)
+            {
+                Vector3 direction = transform.position - Enemy.transform.position;
+                Vector3 force = direction * TargetAccelerationForce * Time.fixedDeltaTime;
+                RayRender.SetPosition(0, transform.position);
+
+                Enemy.ApplyPlayerSpell(force, transform.position, Power);
+                RayRender.SetPosition(1, Enemy.transform.position);                
+            }
+
+            yield return new WaitForFixedUpdate();
         }
     }
 }

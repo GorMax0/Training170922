@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2551991671279786482}
   - component: {fileID: 8527891790184701833}
-  - component: {fileID: -3689368435744592774}
+  - component: {fileID: 5929313139765377062}
   m_Layer: 0
   m_Name: LaserRay
   m_TagString: Untagged
@@ -45,12 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _power: 1
-  _distance: 3
-  _targetAccelerationForce: 1
+  _distance: 50
+  _targetAccelerationForce: 3
   _cooldown: 0.5
---- !u!96 &-3689368435744592774
-TrailRenderer:
-  serializedVersion: 2
+--- !u!120 &5929313139765377062
+LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -68,7 +67,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 14fab0de6c54324468738e7b38a88207, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +88,9 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -110,8 +111,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.8490566, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.7921569, g: 0.1254902, b: 0, a: 1}
+      key1: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -129,7 +130,7 @@ TrailRenderer:
       atime0: 0
       atime1: 49151
       atime2: 58982
-      atime3: 58982
+      atime3: 0
       atime4: 0
       atime5: 0
       atime6: 0
@@ -143,6 +144,5 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
-  m_Emitting: 1
+  m_UseWorldSpace: 1
+  m_Loop: 0

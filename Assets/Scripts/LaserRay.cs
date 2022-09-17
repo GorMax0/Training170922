@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class LaserRay : Spell
 {
-    public override void Use()
+    public override IEnumerator Use()
     {
-        throw new System.NotImplementedException();
+        while (IsUse == true)
+        {
+            if (Enemy != null)
+            {
+                Vector3 direction = transform.position - Enemy.transform.position;
+                Vector3 force = direction * TargetAccelerationForce * Time.fixedDeltaTime;
+                RayRender.SetPosition(0, transform.position);
+
+                Enemy.ApplyPlayerSpell(-force, transform.position, -Power);
+                RayRender.SetPosition(1, Enemy.transform.position);                
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
     }
 }
