@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
@@ -46,6 +47,16 @@ public class Player : MonoBehaviour
         }
 
         Move();
+    }
+
+    public void SetSelectedSpell(int index)
+    {
+        if (index >= 0 && index < _spells.Count)
+        {
+            _selectedSpell.gameObject.SetActive(false);
+            _selectedSpell = _spells[index];
+            _selectedSpell.gameObject.SetActive(true);
+        }
     }
 
     private void Move()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Totem : Spell
+public class HealBox : Spell
 {
     [SerializeField] private float _liveTime;
 
@@ -10,7 +10,7 @@ public class Totem : Spell
 
     public override IEnumerator Use()
     {
-        yield return null;
+        throw new System.NotImplementedException();
     }
 
     public override void SetTarget(Enemy enemy)
